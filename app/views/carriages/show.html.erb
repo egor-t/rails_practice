@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Train number:</strong>
+  <%= @carriage.train.number %><br/>
+</p>
+
+<% case @carriage.type %>
+  <% when "SeatCarriage" %>
+  <p>
+    <strong>Seating places in carriage:</strong>
+    <%= @carriage.seating_places %><br/>
+  </p>
+
+  <% when "CoupeCarriage" %>
+  <p>
+    <strong>Bottom Places in carriage:</strong>
+    <%= @carriage.bottom_seats %><br/>
+    <strong>Top Places in carriage:</strong>
+    <%= @carriage.top_seats %>  <br/>
+  </p>
+
+  <% when "EconomyCarriage" %>
+  <p>
+    <strong>Bottom Places in carriage:</strong>
+    <% @carriage.bottom_seats %><br/>
+    <strong>Top Places in carriage:</strong>
+    <% @carriage.top_seats %><br/>
+    <strong>Side Bottom Places in carriage:</strong>
+    <% @carriage.side_bottom_seats %><br/>
+    <strong>Side Top Places in carriage:</strong>
+    <% @carriage.side_top_seats %><br/>
+  </p>
+
+  <% when "SvCarriage" %>
+  <p>
+    <strong>Bottom Places in carriage:</strong>
+    <% @carriage.bottom_seats %><br/>
+  </p>
+<% end %>
+
+<%= link_to 'Edit', edit_carriage_path(@carriage) %> |
+<%= link_to 'Back', carriages_path %>
