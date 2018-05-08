@@ -23,5 +23,25 @@
   <% end %>
 </p>
 
+<p>
+<% if @train.carriages.empty? %>
+    Any carriages here
+  <% else %>
+    <strong> Carriages: </strong>
+    <ul>
+      <% @train.carriages.each do |carriage| %>
+        <%= link_to "#{carriage.number}", carriage_path(carriage) %>
+      <% end %>
+    </ul>
+  <% end %>
+</p>
+
+<p><strong> Total top seats: </strong> <%= @train.total_number_of_seats('CoupeCarriage', 'top_seats') %></p>
+<p><strong> Total top seats: </strong> <%= @train.total_number_of_seats('CoupeCarriage', 'bottom_seats') %></p>
+
+<br> 
+
+
+<%= link_to 'Add carriage', new_carriage_path(train_id: @train) %> |
 <%= link_to 'Edit', edit_train_path(@train) %> |
 <%= link_to 'Back', trains_path %>
