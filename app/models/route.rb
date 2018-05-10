@@ -7,7 +7,7 @@ class Route < ApplicationRecord
 
   before_validation :set_name
 
-  scope :grep_routes, -> (station) {where(id: station)}
+  scope :grep_routes, -> (station) {where("name LIKE ?", "%#{sanitize_sql_like(station)}%")}
 
   def update_position(route, position)
     station_position = railway_stations_routes.where(route: route).first
