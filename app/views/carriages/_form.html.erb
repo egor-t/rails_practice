@@ -1,10 +1,10 @@
-<%= form_with(model: carriage, local: true) do |form| %>
-   <% if carriage.errors.any? %>
+<%= form_for([@train, @carriage.becomes(Carriage)]) do |form| %>
+   <% if @carriage.errors.any? %>
      <div id="error_explanation">
        <h2><%= pluralize(carriage.errors.count, "error") %> prohibited this carriage from being saved:</h2>
  
        <ul>
-       <% carriage.errors.full_messages.each do |message| %>
+       <% @carriage.errors.full_messages.each do |message| %>
          <li><%= message %></li>
        <% end %>
        </ul>

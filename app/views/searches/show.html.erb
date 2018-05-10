@@ -1,0 +1,30 @@
+<h1>Search ticket</h1>
+
+<%= form_tag search_path, method: :get do %>
+  <%= collection_select :search, :arrival_station, RailwayStation.all, :id, :title %>
+  <%= collection_select :search, :departure_station, RailwayStation.all, :id, :title %>
+  <%= submit_tag 'Find' %>
+<% end %>
+
+<% if @routes %>
+  <% @routes.each do |route| %>
+    <%# <% binding.pry %> %>
+    <% route.railway_stations.ordered.each do |station| %>
+      <p>Arrival: <%= station.arrival_time(route) %>
+      <p>Departure: <%= station.departure_time(route) %>
+    <% end %>
+    <hr>
+  <% end %>  
+<% end %>
+
+<% if @trains %>
+  <h2>Available trains:</h2>
+
+  <% @trains.each do |train| %>
+    Train: <%= train.number %><br/>
+    Arrival: <%= train.route.railway_stations_routes.last.arrival_time %><br/>
+    Departure: <%= train.route.railway_stations_routes.first.departure_time %><br/>
+
+    <%= link_to 'Buy', new_ticket_path(id: train.id) %><br/>
+  <% end %>
+<% end %>

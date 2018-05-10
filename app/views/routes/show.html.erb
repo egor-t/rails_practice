@@ -13,11 +13,44 @@
   <% if @route.railway_stations.empty? %>
     Any stations here
   <% else %>
-    <ul>
+
+  <table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Current position</th>
+      <th>Arriaval time</th>
+      <th>Departure time</th>
+    </tr>
+  </thead>
+    <tbody>
       <% @route.railway_stations.ordered.each do |station| %>
-        <li> <%= station.title %>  </li>
+        <tr>
+          <th> <strong><%= station.title %></strong></th>
+          <th>
+            <%= form_tag update_position_railway_station_path(station), method: :patch do %>
+              <%= hidden_field_tag :route_id, @route.id %>
+              <%= number_field_tag :position, station.position_in(@route.id) %>
+              <%= submit_tag 'Update' %>
+            <% end %> 
+          </th>
+
+        <%= form_tag update_time_railway_station_path(station), method: :patch do %>
+          <th>
+            <%= hidden_field_tag :route_id, @route.id %>
+            <%= datetime_field_tag :arrival_time, station.arrival_time(@route.id) %>
+          </th>
+          <th>
+            <%= datetime_field_tag :departure_time, station.departure_time(@route.id) %>
+            <%= submit_tag 'Update' %>
+          </th>
+        <% end %>
+      </tr>
       <% end %>
-    </ul>
+
+      
+   </tbody>
+  </table>
   <% end %>
 </p>
 
