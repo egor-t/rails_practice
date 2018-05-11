@@ -1,4 +1,4 @@
-class TrainsController < ApplicationController
+class Admin::TrainsController < Admin::BaseController
   before_action :set_train, only: [:edit, :update, :show, :destory]
 
   def index
@@ -33,7 +33,7 @@ class TrainsController < ApplicationController
 
   def destroy
     @train.destroy
-    redirect_to trains_path
+    redirect_to admin_trains_path
   end
 
   private

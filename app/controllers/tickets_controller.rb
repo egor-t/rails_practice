@@ -1,4 +1,5 @@
 class TicketsController < ApplicationController
+  before_action :authenticate_user!, only: :create
   before_action :set_train, only: [:new, :create]
 
   def index
@@ -13,7 +14,7 @@ class TicketsController < ApplicationController
 
   def create
     @ticket = @train.tickets.build(ticket_params)
-    @ticket.user = User.first
+    @ticket.user = current_user
     @ticket.base_station = @train.route.railway_stations.first
     @ticket.end_station = @train.route.railway_stations.last
     if @ticket.save

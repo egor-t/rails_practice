@@ -1,4 +1,4 @@
-class RailwayStationsController < ApplicationController
+class Admin::RailwayStationsController < Admin::BaseController
   before_action :set_railway_station, only: [:show, :edit, :update, :destroy, :update_position, :update_time]
   before_action :set_route, only: [:update_position, :update_time]
 
@@ -70,7 +70,7 @@ class RailwayStationsController < ApplicationController
   def destroy
     @railway_station.destroy
     respond_to do |format|
-      format.html { redirect_to railway_stations_url, notice: 'Railway station was successfully destroyed.' }
+      format.html { redirect_to admin_railway_stations_url, notice: 'Railway station was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

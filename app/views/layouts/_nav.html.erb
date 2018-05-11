@@ -1,8 +1,17 @@
 
 <ul class='nav'>
-    <li><%= link_to "Trains", trains_path %></li>
-    <li><%= link_to "Routes", routes_path %></li>
-    <li><%= link_to "Railway Stations", railway_stations_path %></li>
-    <li><%= link_to "Carrigae", carriages_path %></li>
+    <% if current_user.try(:admin) %>
+        <li><%= link_to "Trains", admin_trains_path %></li>
+        <li><%= link_to "Routes", admin_routes_path %></li>
+        <li><%= link_to "Railway Stations", admin_railway_stations_path %></li>
+        <li><%= link_to "Carrigae", admin_carriages_path %></li>
+    <% end %>
     <li><%= link_to "Search", search_path %></li>
+
+    <% if user_signed_in? %>
+       <li> <%= link_to 'Exit', destroy_user_session_path, method: :delete %>  </li>
+       <li> <p>Account: <%= current_user.email %></p>  </li>
+    <% else %>
+       <li><%= link_to 'Enter', new_user_session_path %>  </li>
+    <% end %>
 </ul>

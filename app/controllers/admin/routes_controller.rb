@@ -1,4 +1,4 @@
-class RoutesController < ApplicationController
+class Admin::RoutesController < Admin::BaseController
   before_action :set_route, only: [:edit, :update, :show, :destory]
 
   def index
@@ -15,7 +15,7 @@ class RoutesController < ApplicationController
 
   def create
     if Route.create!(route_params)
-      redirect_to routes_path
+      redirect_to admin_routes_path
     else
       render :new
     end
@@ -32,7 +32,7 @@ class RoutesController < ApplicationController
   def destroy
     set_route
     @route.destroy
-    redirect_to routes_path
+    redirect_to admin_routes_path
   end
 
   private
