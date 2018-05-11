@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'searches/show'
-
   resources :railway_stations do
     member do
       patch :update_position
@@ -14,6 +12,11 @@ Rails.application.routes.draw do
   resources :routes
   resources :carriages
   resource :search, only: [:show, :new, :edit]
-  
+
+  resources :tickets, only: [:index, :show, :destroy]
+  resources :trains do
+    resources :tickets, only: [:new, :create]
+  end
+
   root 'routes#index'
 end

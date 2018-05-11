@@ -1,0 +1,40 @@
+<h1>You need fill that form and press 'Make order'</h1>
+
+<%= form_for [@train, @ticket] do |form| %>
+  <%= render 'common/errors', resource: @ticket %>
+
+  <div class="field">
+    <%= form.label :base_station %><br>
+    <%= form.text_field :base_station, value: @arrival_station.title, disabled: true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :end_station %><br>
+    <%= form.text_field :end_station, value: @departure_station.title, disabled: true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :user_first_name %><br>
+    <%= form.text_field :user_first_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :user_last_name %><br>
+    <%= form.text_field :user_last_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :user_middle_name %><br>
+    <%= form.text_field :user_middle_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :user_passport %><br>
+    <%= form.text_field :user_passport %>
+  </div>
+
+  <div class="field">
+    <%= form.submit 'Make order' %><br>
+  </div>
+
+<% end %>

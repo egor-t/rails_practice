@@ -1,3 +1,4 @@
+<p id="notice"><%= notice %></p>
 <h1>Search ticket</h1>
 
 <%= form_tag search_path, method: :get do %>
@@ -17,6 +18,8 @@
       Train: <%= train.number %><br/>
       Arrival: <%= train.route.railway_stations_routes.last.arrival_time %><br/>
       Departure: <%= train.route.railway_stations_routes.first.departure_time %><br/>
+      <p><%= link_to 'Buy that ticket', new_train_ticket_path(train, arrival_station: route.railway_stations.first,
+                                                              departure_station: route.railway_stations.last) %></p>
     <% end %>
     <hr>
   <% end %> 
