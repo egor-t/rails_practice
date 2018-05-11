@@ -7,8 +7,10 @@
         <li><%= link_to "Carrigae", admin_carriages_path %></li>
     <% end %>
     <li><%= link_to "Search", search_path %></li>
+    
 
     <% if user_signed_in? %>
+       <li><%= link_to "Tickets", tickets_path %></li>
        <li> <%= link_to 'Exit', destroy_user_session_path, method: :delete %>  </li>
        <li> <p>Account: <%= current_user.email %></p>  </li>
     <% else %>

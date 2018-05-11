@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   end
 
   resource :search, only: [:show, :new, :edit]
-  resources :tickets, only: [:index, :show, :destroy]
+  resources :tickets, only: [:index, :show, :destroy, :edit]
   resources :trains do
     resources :tickets, only: [:new, :create]
   end
