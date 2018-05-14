@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: { registrations: 'registrations', sessions: 'sessions' }
+
 
   namespace :admin do
     resources :railway_stations do
@@ -19,7 +20,7 @@ Rails.application.routes.draw do
   end
 
   resource :search, only: [:show, :new, :edit]
-  resources :tickets, only: [:index, :show, :destroy]
+  resources :tickets, only: [:index, :show, :destroy, :edit]
   resources :trains do
     resources :tickets, only: [:new, :create]
   end

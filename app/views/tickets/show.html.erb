@@ -1,0 +1,28 @@
+<p>
+  <strong>Train number:</strong>
+  <%= @ticket.train.number %>
+</p>
+
+<p>
+  <strong> Email: </strong>
+  <%= @ticket.user.email %>
+</p>
+
+<p>
+  <strong> User first name: </strong>
+  <%= @ticket.user_first_name %>
+</p>
+
+<p>
+  <strong> User last name: </strong>
+  <%= @ticket.user_last_name %>
+</p>
+
+<p>
+  <strong> User passport: </strong>
+  <%= @ticket.user_passport %>
+</p>
+
+<br> 
+<%= link_to 'Delete a ticket', ticket_path(@ticket), method: :delete if current_user == @ticket.user %> |
+<%= link_to 'Back', tickets_path %>
