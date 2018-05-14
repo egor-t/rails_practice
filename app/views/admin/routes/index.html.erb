@@ -1,9 +1,9 @@
-<h1>Routes#index</h1>
+<h1><%=t('admin.routes.index.title') %></h1>
 
 <table>
   <thead>
     <tr>
-      <th>Name</th>
+      <th><%=t('admin.routes.show.title') %></th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,4 +14,4 @@
 </table>
 
 
-<%= link_to 'New route', admin_new_route_path %>
+<%= link_to t('admin.routes.new.title'), new_admin_route_path %>

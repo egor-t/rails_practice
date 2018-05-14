@@ -1,6 +1,6 @@
-<h1>Editing Train</h1>
+<h1><%= t('admin.carriages.edit.title')%></h1>
 
 <%= render 'form', carriage: @carriage %>
 
-<%= link_to 'Show', @carriage %> |
-<%= link_to 'Back', carriages_path %>
+<%= link_to t('common.show'), admin_carriage_path(@carriage) %> |
+<%= link_to t('common.back'), admin_carriage_path %>

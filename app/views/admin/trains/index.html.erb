@@ -1,9 +1,9 @@
-<h1>Trains#index</h1>
+<h1><%= t('admin.trains.index.title')%></h1>
 
 <table>
   <thead>
     <tr>
-      <th>Title</th>
+      <th><%= t('admin.trains.index.number')%></th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -15,4 +15,4 @@
 
 <br>
 
-<%= link_to 'New train', new_train_path %>
+<%= link_to t('common.new'), new_admin_train_path %>

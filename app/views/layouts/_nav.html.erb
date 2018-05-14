@@ -1,19 +1,19 @@
 
 <ul class='nav'>
     <% if current_user.try(:admin) %>
-        <li><%= link_to "Trains", admin_trains_path %></li>
-        <li><%= link_to "Routes", admin_routes_path %></li>
-        <li><%= link_to "Railway Stations", admin_railway_stations_path %></li>
-        <li><%= link_to "Carrigae", admin_carriages_path %></li>
+        <li><%= link_to t('nav.trains'), admin_trains_path %></li>
+        <li><%= link_to t('nav.routes'), admin_routes_path %></li>
+        <li><%= link_to t('nav.railway_stations'), admin_railway_stations_path %></li>
+        <li><%= link_to t('nav.carriage'), admin_carriages_path %></li>
     <% end %>
-    <li><%= link_to "Search", search_path %></li>
+    <li><%= link_to t('nav.search'), search_path %></li>
     
 
     <% if user_signed_in? %>
-       <li><%= link_to "Tickets", tickets_path %></li>
-       <li> <%= link_to 'Exit', destroy_user_session_path, method: :delete %>  </li>
-       <li> <p>Account: <%= current_user.email %></p>  </li>
+       <li><%= link_to t('nav.tickets'), tickets_path %></li>
+       <li> <%= link_to t('nav.sign_out'), destroy_user_session_path, method: :delete %>  </li>
+       <li> <p><%=t('nav.account')%>: <%= current_user.email %></p>  </li>
     <% else %>
-       <li><%= link_to 'Enter', new_user_session_path %>  </li>
+       <li><%= link_to t('nav.sign_in'), new_user_session_path %>  </li>
     <% end %>
 </ul>

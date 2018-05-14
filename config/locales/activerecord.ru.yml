@@ -1,0 +1,31 @@
+ru:
+  activerecord:
+    models:
+      railway_station: 'Станция'
+      train: 'Поезд'
+      carriage: 'Вагон'
+    attributes:
+      railway_station:
+        title: 'Название'
+      route:
+        name: 'Название'
+      train:
+        number: 'Номер'
+        current_station: 'Текущая станция'
+        route: 'Маршрут'
+      carriage:
+        number: 'Номер'
+        top_seats: 'Верхние места'
+        bottom_seats: 'Нижние места'
+        side_top_seats: 'Боквые верхние места'
+        side_bottom_seats: 'Боковые нижние места'
+        seating_place: 'Сидячие места'
+        train_id: 'Номер поезда'
+    errors:
+      messages:
+        blank: 'Не может быть пустым'
+      models:
+        user:
+          attributes:
+            email:
+              taken: 'Такой email уже существует'

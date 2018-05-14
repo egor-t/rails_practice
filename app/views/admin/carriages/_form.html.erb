@@ -22,11 +22,11 @@
    </div>
 
     <div class="field">
-      <%= form.label :train %>
+      <%= form.label :train, t('admin.trains.index.title') %>
       <%= form.collection_select :train_id, Train.all, :id, :number  %>
    </div>
  
    <div class="actions">
-     <%= form.submit %>
+     <%= form.submit t('common.update')%>
    </div>
 <% end %>
