@@ -1,5 +1,5 @@
 <p>
-  <strong>Train number:</strong>
+  <strong><%= t('admin.carriages.form.train_number')%>:</strong>
   <%= @carriage.train.number %><br/>
 </p>
 
@@ -12,9 +12,9 @@
 
   <% when "CoupeCarriage" %>
   <p>
-    <strong>Bottom Places in carriage:</strong>
+    <strong><%= t('admin.carriages.form.bottom_places')%>:</strong>
     <%= @carriage.bottom_seats %><br/>
-    <strong>Top Places in carriage:</strong>
+    <strong><%= t('admin.carriages.form.top_places')%>:</strong>
     <%= @carriage.top_seats %>  <br/>
   </p>
 
@@ -37,5 +37,5 @@
   </p>
 <% end %>
 
-<%= link_to 'Edit', edit_carriage_path(@carriage) %> |
-<%= link_to 'Back', carriages_path %>
+<%= link_to t('common.edit'), edit_admin_carriage_path(@carriage) %> |
+<%= link_to t('common.back'), admin_carriages_path %>

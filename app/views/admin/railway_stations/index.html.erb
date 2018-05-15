@@ -1,9 +1,9 @@
-<h1>Railway Stations</h1>
+<h1><%= t('admin.railway_stations.index.list')%></h1>
 
 <table>
   <thead>
     <tr>
-      <th>Title</th>
+      <th><%= t('admin.railway_stations.index.title')%></th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -15,4 +15,4 @@
 
 <br>
 
-<%= link_to 'New Railway Station', new_admin_railway_station_path %>
+<%= link_to t('admin.railway_stations.new.title'), new_admin_railway_station_path %>

@@ -13,7 +13,7 @@ class Admin::CarriagesController < Admin::BaseController
    def create
      @carriage = @train.carriages.new(carriage_params)
      if @carriage.save
-       redirect_to @train, note: 'Carriage added!'
+       redirect_to admin_carriage_path(@train), note: 'Carriage added!'
      else
        render 'new'
      end
@@ -24,7 +24,7 @@ class Admin::CarriagesController < Admin::BaseController
 
    def update
      if @carriage.update(carriage_params)
-       redirect_to @carriage
+       redirect_to admin_carriage_path(@carriage)
      else
        render 'edit'
      end
@@ -35,7 +35,7 @@ class Admin::CarriagesController < Admin::BaseController
 
    def destroy
      @carriage.destroy
-     redirect_to carriages_url
+     redirect_to admin_carriages_path
    end
 
    private

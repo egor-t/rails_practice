@@ -23,7 +23,7 @@ class Admin::RoutesController < Admin::BaseController
 
   def update
     if @route.update(route_params)
-      redirect_to @route
+      redirect_to admin_route_path(@route)
     else
       render :new
     end

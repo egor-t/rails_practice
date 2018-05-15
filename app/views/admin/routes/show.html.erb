@@ -1,24 +1,21 @@
 <p>
-  <strong>Number:</strong>
+  <strong><%= t('admin.routes.show.title')%>:</strong>
   <%= @route.name %>
 </p>
 
 <p>
-  <strong>Rails stations on route:</strong>
+  <strong><%= t('admin.railway_stations.index.list')%>:</strong>
 </p>
 
 <p>
-  <% if @route.railway_stations.empty? %>
-    Any stations here
-  <% else %>
-
+  <% if @route.railway_stations.count.positive? %>
   <table>
   <thead>
     <tr>
-      <th>Title</th>
-      <th>Current position</th>
-      <th>Arriaval time</th>
-      <th>Departure time</th>
+      <th><%= t('admin.routes.form.title')%></th>
+      <th><%= t('admin.routes.form.current_position')%></th>
+      <th><%= t('admin.routes.form.arrival_time')%></th>
+      <th><%= t('admin.routes.form.departure_time')%></th>
     </tr>
   </thead>
     <tbody>
@@ -26,21 +23,21 @@
         <tr>
           <th> <strong><%= station.title %></strong></th>
           <th>
-            <%= form_tag update_position_railway_station_path(station), method: :patch do %>
+            <%= form_tag update_position_admin_railway_station_path(station), method: :patch do %>
               <%= hidden_field_tag :route_id, @route.id %>
               <%= number_field_tag :position, station.position_in(@route.id) %>
-              <%= submit_tag 'Update' %>
+              <%= submit_tag t('common.update') %>
             <% end %> 
           </th>
 
-        <%= form_tag update_time_railway_station_path(station), method: :patch do %>
+        <%= form_tag update_time_admin_railway_station_path(station), method: :patch do %>
           <th>
             <%= hidden_field_tag :route_id, @route.id %>
             <%= datetime_field_tag :arrival_time, station.arrival_time(@route.id) %>
           </th>
           <th>
             <%= datetime_field_tag :departure_time, station.departure_time(@route.id) %>
-            <%= submit_tag 'Update' %>
+            <%= submit_tag t('common.update') %>
           </th>
         <% end %>
       </tr>
@@ -53,13 +50,11 @@
 </p>
 
 <p>
-  <strong>Trains on route:</strong>
+  <strong><%= t('admin.routes.form.route_trains')%>:</strong>
 </p>
 
 <p>
-  <% if @route.trains.empty? %>
-    Any trains here
-  <% else %>
+  <% if @route.trains.count.positive? %>
     <ul>
       <% @route.trains.each do |station| %>
         <li> №:  <%= station.number %>  </li>
@@ -68,5 +63,5 @@
   <% end %>
 </p>
 
-<%= link_to 'Edit', admin_edit_route_path(@route) %> |
-<%= link_to 'Back', admin_routes_path %>
+<%= link_to t('common.edit'), edit_admin_route_path(@route) %> |
+<%= link_to t('common.back'), admin_routes_path %>

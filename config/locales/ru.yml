@@ -1,0 +1,105 @@
+ru:
+  email: 'email'
+  hello: 'Привет'
+  nav:
+    account: 'Аккаунт'
+    search: 'Поиск'
+    trains: 'Поезда'
+    routes: 'Маршруты'
+    railway_stations: 'Станции'
+    carriage: 'Вагоны'
+    tickets: 'Билеты'
+    sign_in: 'Вход'
+    sign_out: 'Выход'
+  footer:
+    creator: 'Сайт создан'
+    auhtor: 'Егор Т'
+    contacts: 'Контакты'
+  common:
+    back: 'Назад'
+    edit: 'Редактировать'
+    show: 'Показать'
+    new: 'Создать'
+    delete: 'Удалить'
+    errors: 'При заполнении формы возникли ошибки'
+    delete_question: 'Вы уверены?'
+    submit: 'Создать'
+    update: 'Обновить'
+  admin:
+    railway_stations:
+      new:
+        title: 'Новая станция'
+      edit:
+        title: 'Редактировать станцию'
+      show:
+        title: 'Название'
+      index:
+        list: 'Список станций'
+        title: 'Название'
+      form:
+        submit: '%{action} станцию'
+        title: 'Название'
+    trains:
+      new:
+        title: 'Новый поезд'
+      edit:
+        title: 'Редактировать поезд'
+      form:
+        submit: 'Создать поезд'
+      index:
+        title: 'Все поезда'
+        number: 'Номер'
+    routes:
+      index:
+        title: 'Маршруты'
+      show:
+        title: 'Маршрут'
+      new:
+        title: 'Новый маршрут'
+      messages:
+        route_not_set: 'Маршрут не установлен'
+      form:
+        title: 'Название станции'
+        current_position: 'Текущая позиция'
+        arrival_time: 'Время прибытия'
+        departure_time: 'Время отправления'
+        route_trains: 'Поезда на маршруте'
+    carriages:
+      index:
+        title: 'Все вагоны'
+      new: 
+        add_carriage: 'Добавить вагон'
+        new_carriage: 'Новый вагон'
+      edit:
+        title: 'Редактировать вагон'
+      form:
+        id: '№'
+        carriage_type: 'Тип вагона'
+        top_places: 'Верхние места'
+        bottom_places: 'Нижние места'
+        train_number: 'Номер поезда'
+        carriage_number: 'Номер вагона'
+  public:
+    search:
+      index:
+        title: 'Поиск билетов'
+      show:
+        name: 'Станция'
+        arrival: 'Прибытие'
+        departure: 'Отправление'
+      buttons:
+        find: 'Найти'
+        buy_ticket: 'Купить билет'
+    tickets:
+      index:
+        title: 'Билеты'
+      table:
+        ticket_id: 'Номер билета'
+        user: 'Номер клиента'
+        user_email: 'Електронная почта'
+        user_name: 'Имя'
+        user_middle_name: 'Отчество'
+        user_last_name: 'Фамилия'
+        user_passport: 'Паспорт'
+        train_number: 'Номер поезда'
+      

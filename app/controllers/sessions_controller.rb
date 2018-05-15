@@ -1,4 +1,3 @@
-
 # Overide devise session controller(customize flash message after sign in)
 class SessionsController < Devise::SessionsController
   def create

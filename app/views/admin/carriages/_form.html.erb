@@ -22,11 +22,15 @@
    </div>
 
     <div class="field">
-      <%= form.label :train %>
+      <%= form.label :train, t('admin.trains.index.title') %>
       <%= form.collection_select :train_id, Train.all, :id, :number  %>
    </div>
  
-   <div class="actions">
-     <%= form.submit %>
-   </div>
+
+  <div class="actions">
+    <% if @carriage.new_record? %>
+      <%= form.submit t('common.submit') %>
+    <% else %>
+      <%= form.submit t('common.update') %>
+    <% end %>
 <% end %>
