@@ -64,12 +64,12 @@ ru:
         arrival_time: 'Время прибытия'
         departure_time: 'Время отправления'
         route_trains: 'Поезда на маршруте'
-
     carriages:
       index:
         title: 'Все вагоны'
       new: 
         add_carriage: 'Добавить вагон'
+        new_carriage: 'Новый вагон'
       edit:
         title: 'Редактировать вагон'
       form:
@@ -79,3 +79,27 @@ ru:
         bottom_places: 'Нижние места'
         train_number: 'Номер поезда'
         carriage_number: 'Номер вагона'
+  public:
+    search:
+      index:
+        title: 'Поиск билетов'
+      show:
+        name: 'Станция'
+        arrival: 'Прибытие'
+        departure: 'Отправление'
+      buttons:
+        find: 'Найти'
+        buy_ticket: 'Купить билет'
+    tickets:
+      index:
+        title: 'Билеты'
+      table:
+        ticket_id: 'Номер билета'
+        user: 'Номер клиента'
+        user_email: 'Електронная почта'
+        user_name: 'Имя'
+        user_middle_name: 'Отчество'
+        user_last_name: 'Фамилия'
+        user_passport: 'Паспорт'
+        train_number: 'Номер поезда'
+      

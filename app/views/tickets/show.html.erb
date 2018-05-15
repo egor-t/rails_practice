@@ -1,28 +1,28 @@
 <p>
-  <strong>Train number:</strong>
+  <strong><%= t('public.tickets.table.train_number')%>:</strong>
   <%= @ticket.train.number %>
 </p>
 
 <p>
-  <strong> Email: </strong>
+  <strong><%= t('public.tickets.table.user_email')%>: </strong>
   <%= @ticket.user.email %>
 </p>
 
 <p>
-  <strong> User first name: </strong>
+  <strong><%= t('public.tickets.table.user_name')%>: </strong>
   <%= @ticket.user_first_name %>
 </p>
 
 <p>
-  <strong> User last name: </strong>
+  <strong><%= t('public.tickets.table.user_last_name')%>: </strong>
   <%= @ticket.user_last_name %>
 </p>
 
 <p>
-  <strong> User passport: </strong>
+  <strong><%= t('public.tickets.table.user_passport')%>: </strong>
   <%= @ticket.user_passport %>
 </p>
 
 <br> 
-<%= link_to 'Delete a ticket', ticket_path(@ticket), method: :delete if current_user == @ticket.user %> |
-<%= link_to 'Back', tickets_path %>
+<%= link_to t('common.delete'), ticket_path(@ticket), method: :delete if current_user == @ticket.user %> 
+<%= link_to t('common.back'), tickets_path %>

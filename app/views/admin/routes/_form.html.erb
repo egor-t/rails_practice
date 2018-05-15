@@ -7,11 +7,11 @@
   </div>
 
   <div class="field">
-    <%= form.label :railway_station_ids, 'Current stations:' %>
+    <%= form.label :railway_station_ids, t('admin.routes.index.title') %>
     <%= form.collection_select :railway_station_ids, RailwayStation.all, :id, :title, {}, { multiple: true }  %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit t('common.update') %>
   </div>
 <% end %>

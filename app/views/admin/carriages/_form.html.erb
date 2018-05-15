@@ -26,7 +26,11 @@
       <%= form.collection_select :train_id, Train.all, :id, :number  %>
    </div>
  
-   <div class="actions">
-     <%= form.submit t('common.update')%>
-   </div>
+
+  <div class="actions">
+    <% if @carriage.new_record? %>
+      <%= form.submit t('common.submit') %>
+    <% else %>
+      <%= form.submit t('common.update') %>
+    <% end %>
 <% end %>
