@@ -1,10 +1,8 @@
 <h1><%= t('public.search.index.title') %></h1>
 
 <%= form_tag search_path, method: :get do %>
-  <%# <%= collection_select :search, :arrival_station, RailwayStation.all, :id, :title %> 
   <%= select_tag :arrival_station, options_from_collection_for_select(@stations, :id, :title) %>
   <%= select_tag :departure_station, options_from_collection_for_select(@stations, :id, :title) %>
-  <%# <%= collection_select :search, :departure_station, RailwayStation.all, :id, :title %>
   <%= submit_tag t('public.search.buttons.find') %>
 <% end %>
 

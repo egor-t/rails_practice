@@ -2,12 +2,11 @@ class SearchesController < ApplicationController
   before_action :set_stations, only: :show
 
   def show
-    if params
+    if params[:arrival_station]
       @start_station = RailwayStation.find(params[:arrival_station])
       @end_station = RailwayStation.find(params[:departure_station])
       @routes = Route.all_routes_by_query(@start_station, @end_station)
     end
-
   end
 
   protected
