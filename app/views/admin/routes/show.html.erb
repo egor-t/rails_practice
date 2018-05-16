@@ -30,20 +30,18 @@
             <% end %> 
           </th>
 
-        <%= form_tag update_time_admin_railway_station_path(station), method: :patch do %>
-          <th>
-            <%= hidden_field_tag :route_id, @route.id %>
-            <%= datetime_field_tag :arrival_time, station.arrival_time(@route.id) %>
-          </th>
-          <th>
-            <%= datetime_field_tag :departure_time, station.departure_time(@route.id) %>
-            <%= submit_tag t('common.update') %>
-          </th>
-        <% end %>
-      </tr>
+          <%= form_tag update_time_admin_railway_station_path(station), method: :patch do %>
+            <th>
+              <%= hidden_field_tag :route_id, @route.id %>
+              <%= datetime_field_tag :arrival_time, station.arrival_time(@route.id) %>
+            </th>
+            <th>
+              <%= datetime_field_tag :departure_time, station.departure_time(@route.id) %>
+              <%= submit_tag t('common.update') %>
+            </th>
+          <% end %>
+        </tr>
       <% end %>
-
-      
    </tbody>
   </table>
   <% end %>

@@ -53,16 +53,20 @@ class Admin::RailwayStationsController < Admin::BaseController
   end
 
   def update_position
-    @route = Route.find(params[:route_id])
-    @route.update_position(@route, params[:position])
-    redirect_to @route
+    # @route = Route.find(params[:route_id])
+    # @route.update_position(@route, params[:position])
+    # redirect_to admin_route_url(@route)
+    if @railway_station.update_position(@route, params[:position])
+      flash[:notice] = 'Station position was successfully updated.'
+    end
+    redirect_to admin_route_url(@route)
   end
 
   def update_time
     if @railway_station.update_time(@route, params[:arrival_time], params[:departure_time])
       flash[:notice] = 'Station date was successfully updated.'
     end
-    redirect_to route_url(@route)
+    redirect_to admin_route_url(@route)
   end
 
   # DELETE /railsway_stations/1
