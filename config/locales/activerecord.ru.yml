@@ -4,6 +4,7 @@ ru:
       railway_station: 'Станция'
       train: 'Поезд'
       carriage: 'Вагон'
+      user: 'Пользователь'
     attributes:
       railway_station:
         title: 'Название'
@@ -21,11 +22,38 @@ ru:
         side_bottom_seats: 'Боковые нижние места'
         seating_place: 'Сидячие места'
         train_id: 'Номер поезда'
+      user: 
+        email: 'Електронная почта'
+        password: 'Пароль'
+        password_confirmation: 'Подтверждающий пароль'
+        first_name: 'Имя'
+        last_name: 'Фамилия'
+      ticket: 
+        ticket_id: 'Номер билета'
+        user: 'Номер клиента'
+        user_email: 'Електронная почта'
+        user_first_name: 'Имя'
+        user_middle_name: 'Отчество'
+        user_last_name: 'Фамилия'
+        user_passport: 'Паспорт'
+        train_number: 'Номер поезда'
+        base_station: 'Начальная станция'
+        end_station: 'Конечная станция'
     errors:
       messages:
-        blank: 'Не может быть пустым'
+        blank: 'не может быть пустым'
       models:
         user:
           attributes:
             email:
               taken: 'Такой email уже существует'
+            password:
+              blank: "не может быть пустым"
+              confirmation: "Пароль не совпадает"
+            password_confirmation:
+              blank: "не может быть пустым"
+              confirmation: 'должен совпадать'
+            first_name:
+              blank: "не может быть пустым"
+            last_name:
+              blank: "не может быть пустым"

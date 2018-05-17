@@ -48,7 +48,7 @@ ru:
         submit: 'Создать поезд'
       index:
         title: 'Все поезда'
-        number: 'Номер'
+        number: 'Номер поезда'
     routes:
       index:
         title: 'Маршруты'
@@ -87,6 +87,7 @@ ru:
         name: 'Станция'
         arrival: 'Прибытие'
         departure: 'Отправление'
+        available_trains: 'Доступные поезда'
       buttons:
         find: 'Найти'
         buy_ticket: 'Купить билет'
@@ -102,4 +103,6 @@ ru:
         user_last_name: 'Фамилия'
         user_passport: 'Паспорт'
         train_number: 'Номер поезда'
+      new:
+        title: 'Покупка билетов'
       

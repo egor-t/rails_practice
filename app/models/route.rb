@@ -7,7 +7,6 @@ class Route < ApplicationRecord
 
   before_validation :set_name
 
-  # scope :grep_routes, -> (station) {where("name LIKE ?", "%#{sanitize_sql_like(station)}%")}
   scope :route_include_station, -> (station) { Route.joins(:railway_stations).where('railway_stations.id = ?', station.id) }
 
   def update_position(route, position)
@@ -15,12 +14,11 @@ class Route < ApplicationRecord
     station_position.update(position: position) if station_position
   end
 
-  # def self.grep_routes(station)
-  #   self.where("name LIKE ?", "%#{sanitize_sql_like(station)}%")
-  # end
-
   def self.all_routes_by_query(a_station, b_station)
-    route_include_station(a_station) & route_include_station(b_station)
+    return if a_station.id == b_station.id
+    routes = route_include_station(a_station) & route_include_station(b_station)
+    return nil if routes.empty?
+    routes
   end
 
   protected
