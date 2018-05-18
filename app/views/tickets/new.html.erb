@@ -6,12 +6,12 @@
 
     <div class="field">
       <%= form.label :base_station %><br>
-      <%= form.text_field :base_station, value: @arrival_station.title, disabled: true %>
+      <%= form.text_field :base_station, value: @ticket.base_station.title, disabled: true %>
     </div>
 
     <div class="field">
       <%= form.label :end_station %><br>
-      <%= form.text_field :end_station, value: @departure_station.title, disabled: true %>
+      <%= form.text_field :end_station, value: @ticket.end_station.title, disabled: true %>
     </div>
 
     <div class="field">

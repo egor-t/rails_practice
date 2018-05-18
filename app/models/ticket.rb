@@ -4,6 +4,8 @@ class Ticket < ApplicationRecord
   belongs_to :base_station, class_name: 'RailwayStation', foreign_key: :base_station_id
   belongs_to :end_station, class_name: 'RailwayStation', foreign_key: :end_station_id
 
+  validates :user_first_name, :user_middle_name, :user_last_name, :user_passport, presence: true
+
   after_create :send_notification
   after_destroy :send_delete_notification
 

@@ -1,8 +1,8 @@
 <div class = 'choose-routes'>
   <h1><%= t('public.search.index.title') %></h1>
   <%= form_tag search_path, method: :get do %>
-    <%= select_tag :arrival_station, options_from_collection_for_select(@stations, :id, :title) %>
-    <%= select_tag :departure_station, options_from_collection_for_select(@stations, :id, :title) %>
+    <%= select_tag :arrival_station, options_from_collection_for_select(@stations, :id, :title, selected: session[:start_station].try(:id)) %>
+    <%= select_tag :departure_station, options_from_collection_for_select(@stations, :id, :title, selected: session[:end_station].try(:id)) %>
     <%= submit_tag t('public.search.buttons.find') %>
   <% end %>
 </div>

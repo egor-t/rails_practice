@@ -110,4 +110,7 @@ ru:
         train_number: 'Номер поезда'
       new:
         title: 'Покупка билетов'
+      messages:
+        created: ''
+        updated: ''
       

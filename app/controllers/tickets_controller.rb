@@ -17,14 +17,14 @@ class TicketsController < ApplicationController
   end
 
   def create
-    ticket = @train.tickets.build(ticket_params)
-    ticket.user = current_user
-    ticket.base_station = @train.route.railway_stations.first
-    ticket.end_station = @train.route.railway_stations.last
-    if ticket.save
-      redirect_to tickets_path, notice: 'Ticket was successfully created.'
+    @ticket = @train.tickets.build(ticket_params)
+    @ticket.user = current_user
+    @ticket.base_station = @train.route.railway_stations.first
+    @ticket.end_station = @train.route.railway_stations.last
+    if @ticket.save
+      redirect_to tickets_path, notice: t('public.tickets.messages.created')
     else
-      redirect_to search_path, notice: 'Some problem with ticket creation.'
+      render :new
     end
   end
 
