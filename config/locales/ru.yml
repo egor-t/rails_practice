@@ -39,6 +39,10 @@ ru:
       form:
         submit: '%{action} станцию'
         title: 'Название'
+      messages:
+        created: 'Станция была успешна создана'
+        updated: 'Станция была успешно обновлена'
+        deleted: 'Станция была успешно удалена'
     trains:
       new:
         title: 'Новый поезд'
@@ -88,6 +92,7 @@ ru:
         arrival: 'Прибытие'
         departure: 'Отправление'
         available_trains: 'Доступные поезда'
+        any_results: 'Не найдено маршрутов по данному запросу'
       buttons:
         find: 'Найти'
         buy_ticket: 'Купить билет'

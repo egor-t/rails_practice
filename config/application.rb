@@ -10,5 +10,6 @@ module RailsPractice
   class Application < Rails::Application
     config.load_defaults 5.1
     config.i18n.default_locale = :ru
+    config.i18n.available_locales = %i(ru en)
   end
 end

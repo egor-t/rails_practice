@@ -4,11 +4,7 @@ class TicketsController < ApplicationController
   before_action :set_ticket, only: [:show, :destroy]
 
   def index
-    if current_user.admin?
-      @tickets = Ticket.all
-    else
-      @tickets = current_user.tickets
-    end
+    @tickets = current_user.admin? ? Ticket.all : current_user.tickets
   end
 
   def new
@@ -21,11 +17,11 @@ class TicketsController < ApplicationController
   end
 
   def create
-    @ticket = @train.tickets.build(ticket_params)
-    @ticket.user = current_user
-    @ticket.base_station = @train.route.railway_stations.first
-    @ticket.end_station = @train.route.railway_stations.last
-    if @ticket.save
+    ticket = @train.tickets.build(ticket_params)
+    ticket.user = current_user
+    ticket.base_station = @train.route.railway_stations.first
+    ticket.end_station = @train.route.railway_stations.last
+    if ticket.save
       redirect_to tickets_path, notice: 'Ticket was successfully created.'
     else
       redirect_to search_path, notice: 'Some problem with ticket creation.'
@@ -48,11 +44,7 @@ class TicketsController < ApplicationController
   end
 
   def set_ticket
-    if current_user.admin?
-      @ticket = Ticket.find(params[:id])
-    else
-      @ticket = current_user.tickets.find(params[:id])
-    end
+    @ticket = current_user.admin? ? Ticket.find(params[:id]) : current_user.tickets.find(params[:id])
   end
 
   def set_train

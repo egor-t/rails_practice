@@ -3,11 +3,7 @@ class ApplicationController < ActionController::Base
 
   protected
 
-  def after_sign_in_path_for(resource)
-    if current_user.admin?
-      admin_trains_path
-    else
-      root_path
-    end
+  def after_sign_in_path_for(user)
+    user.admin? ? admin_trains_path : root_path
   end
 end

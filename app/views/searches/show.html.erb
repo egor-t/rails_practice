@@ -19,26 +19,26 @@
     </thead>
     <tbody>
       <% @routes.each do |route| %>
-        <% if route.trains.count.positive? %>
-          <% route.railway_stations.each do |station| %>
-            <tr>
-              <td><%= station.title %></td>
-              <td><%= station.arrival_time(route).strftime("%d.%m - %H:%M") if station.arrival_time(route) %></td>
-              <td><%= station.departure_time(route).strftime("%d.%m - %H:%M") if station.departure_time(route) %></td>
-            </tr>
-          <% end %>
-          <tr>  
-            <td colspan="3">
-              <% route.trains.each do |train| %>
-                <%=" #{t('admin.trains.index.number')}: #{train.number}" %>
-                <p><%= link_to t('public.search.buttons.buy_ticket'), new_train_ticket_path(train, arrival_station: route.railway_stations.first,
-                                                                        departure_station: route.railway_stations.last) if user_signed_in? %></p>
-                <hr>
-              <% end %>
-            </td>
+        <% route.railway_stations.each do |station| %>
+          <tr>
+            <td><%= station.title %></td>
+            <td><%= station.arrival_time(route).strftime("%d.%m - %H:%M") if station.arrival_time(route) %></td>
+            <td><%= station.departure_time(route).strftime("%d.%m - %H:%M") if station.departure_time(route) %></td>
           </tr>
         <% end %>
+        <tr>  
+          <td colspan="3">
+            <% route.trains.each do |train| %>
+              <%=" #{t('admin.trains.index.number')}: #{train.number}" %>
+              <p><%= link_to t('public.search.buttons.buy_ticket'), new_train_ticket_path(train, arrival_station: route.railway_stations.first,
+                                                                      departure_station: route.railway_stations.last) if user_signed_in? %></p>
+              <hr>
+            <% end %>
+          </td>
+        </tr>
       <% end %> 
     <tbody>
-  </table>  
+  </table>
+<% else %>
+  <h3><%= t('public.search.show.any_results') %></h3>
 <% end %>
