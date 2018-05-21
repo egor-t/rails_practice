@@ -1,10 +1,13 @@
+# frozen_string_literal: true
+
+# Tickets controller
 class TicketsController < ApplicationController
-  before_action :authenticate_user!, only: [:create, :update, :destroy]
-  before_action :set_train, only: [:new, :create]
-  before_action :set_ticket, only: [:show, :destroy]
+  before_action :authenticate_user!, only: %i[create update destroy]
+  before_action :set_train, only: %i[new create]
+  before_action :set_ticket, only: %i[show destroy]
 
   def index
-    @tickets = current_user.admin? ? Ticket.all : current_user.tickets
+    @tickets = current_user.admin? ? Ticket.includes(:user) : current_user.tickets
   end
 
   def new
@@ -13,8 +16,7 @@ class TicketsController < ApplicationController
     @departure_station = RailwayStation.find(params[:departure_station])
   end
 
-  def show
-  end
+  def show; end
 
   def create
     @ticket = @train.tickets.build(ticket_params)
@@ -28,8 +30,7 @@ class TicketsController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def destroy
     @ticket.destroy

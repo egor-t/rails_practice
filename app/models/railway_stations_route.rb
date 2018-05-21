@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Railway Stations Route - join table
 class RailwayStationsRoute < ApplicationRecord
   belongs_to :railway_station
   belongs_to :route

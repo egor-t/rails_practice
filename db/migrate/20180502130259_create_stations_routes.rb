@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateStationsRoutes < ActiveRecord::Migration[5.1]
   def change
     create_table :railway_stations_routes do |t|

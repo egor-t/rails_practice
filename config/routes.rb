@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'registrations', sessions: 'sessions' }
 
@@ -18,10 +20,10 @@ Rails.application.routes.draw do
     resources :tickets
   end
 
-  resource :search, only: [:show, :new, :edit]
-  resources :tickets, only: [:index, :show, :destroy, :edit]
+  resource :search, only: %i[show new edit]
+  resources :tickets, only: %i[index show destroy edit]
   resources :trains do
-    resources :tickets, only: [:new, :create]
+    resources :tickets, only: %i[new create]
   end
 
   root to: 'searches#show'

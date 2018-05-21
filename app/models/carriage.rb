@@ -1,5 +1,8 @@
+# frozen_string_literal: true
+
+# Carriage main class for all type of carriages
 class Carriage < ApplicationRecord
-  TYPES = %w(CoupeCarriage SvCarriage EconomCarriage SeatCarriage)
+  TYPES = %w[CoupeCarriage SvCarriage EconomCarriage SeatCarriage].freeze
   belongs_to :train
 
   validates :train, :type, :number, presence: true

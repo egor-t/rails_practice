@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Ticket model
 class Ticket < ApplicationRecord
   belongs_to :user
   belongs_to :train
@@ -16,10 +19,10 @@ class Ticket < ApplicationRecord
   private
 
   def send_notification
-    TicketsMailer.buy_ticket(self.user, self).deliver_now
+    TicketsMailer.buy_ticket(user, self).deliver_now
   end
 
   def send_delete_notification
-    TicketsMailer.delete_ticket(self.user, self).deliver_now
+    TicketsMailer.delete_ticket(user, self).deliver_now
   end
 end

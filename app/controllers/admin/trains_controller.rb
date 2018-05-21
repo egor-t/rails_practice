@@ -1,48 +1,53 @@
-class Admin::TrainsController < Admin::BaseController
-  before_action :set_train, only: [:edit, :update, :show, :destroy]
+# frozen_string_literal: true
 
-  def index
-    @trains = Train.all
-  end
+# Admin
+class Admin
+  # Trains controller
+  class TrainsController < Admin::BaseController
+    before_action :set_train, only: %i[edit update show destroy]
 
-  def new
-    @train = Train.new
-  end
-
-  def show; end
-
-  def create
-    @train = Train.new(train_params)
-    if @train.save
-      redirect_to admin_train_path(@train)
-    else
-      render :new
+    def index
+      @trains = Train.all
     end
-  end
 
-  def edit
-  end
-
-  def update
-    if @train.update(train_params)
-      redirect_to admin_train_path(@train)
-    else
-      render :new
+    def new
+      @train = Train.new
     end
-  end
 
-  def destroy
-    @train.destroy
-    redirect_to admin_trains_path
-  end
+    def show; end
 
-  private
+    def create
+      @train = Train.new(train_params)
+      if @train.save
+        redirect_to admin_train_path(@train)
+      else
+        render :new
+      end
+    end
 
-  def set_train
-    @train = Train.find(params[:id])
-  end
+    def edit; end
 
-  def train_params
-    params.require(:train).permit(:number, :route_id, :current_station_id)
+    def update
+      if @train.update(train_params)
+        redirect_to admin_train_path(@train)
+      else
+        render :new
+      end
+    end
+
+    def destroy
+      @train.destroy
+      redirect_to admin_trains_path
+    end
+
+    private
+
+    def set_train
+      @train = Train.find(params[:id])
+    end
+
+    def train_params
+      params.require(:train).permit(:number, :route_id, :current_station_id)
+    end
   end
 end

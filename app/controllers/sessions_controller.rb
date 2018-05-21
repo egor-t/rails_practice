@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Overide devise session controller(customize flash message after sign in)
 class SessionsController < Devise::SessionsController
   def create

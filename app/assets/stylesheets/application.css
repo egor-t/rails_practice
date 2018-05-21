@@ -16,9 +16,8 @@
   color: white;
   text-align: center;
 }
-
-
 /* Footer region end */
+
 
 /* Nav region begin*/
 
@@ -51,8 +50,9 @@
 
 /* Change the link color to #111 (black) on hover */
 .nav li a:hover {
- background-color: #111;
+ background-color: rgb(172, 105, 105) !important; 
 }
+
 /* Nav region end */
 
 /* User sign in and sign forms. */

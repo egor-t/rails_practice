@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Tickets mailer send notificatin when buy or delete ticket.
 class TicketsMailer < ApplicationMailer
   def buy_ticket(user, ticket)
     @user = user

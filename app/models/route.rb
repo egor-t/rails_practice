@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Route model, some part of functionality here.
 class Route < ApplicationRecord
   validates :name, presence: true
 
@@ -7,11 +10,11 @@ class Route < ApplicationRecord
 
   before_validation :set_name
 
-  scope :route_include_station, -> (station) { Route.joins(:railway_stations).where('railway_stations.id = ?', station.id) }
+  scope :route_include_station, ->(station) { Route.joins(:railway_stations).where('railway_stations.id = ?', station.id) }
 
   def update_position(route, position)
     station_position = railway_stations_routes.where(route: route).first
-    station_position.update(position: position) if station_position
+    station_position&.update(position: position)
   end
 
   def self.all_routes_by_query(a_station, b_station)
