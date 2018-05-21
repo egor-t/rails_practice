@@ -12,8 +12,8 @@ class TicketsController < ApplicationController
 
   def new
     @ticket = Ticket.new
-    @arrival_station = RailwayStation.find(params[:arrival_station])
-    @departure_station = RailwayStation.find(params[:departure_station])
+    @base_station = RailwayStation.find(params[:arrival_station])
+    @end_station = RailwayStation.find(params[:departure_station])
   end
 
   def show; end
@@ -49,6 +49,6 @@ class TicketsController < ApplicationController
   end
 
   def set_train
-    @train = Train.find(params[:train_id])
+    @train = Train.includes(:route).find(params[:train_id])
   end
 end
