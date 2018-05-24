@@ -1,5 +1,5 @@
-<%= form_for([:admin,  @railway_station]) do |form| %>
-<%= render 'common/errors', resource: @railway_station %>
+<%= form_for([:admin, station], html: { style: "display: #{hidden ? 'none' : 'block'}" }) do |form| %>
+<%= render 'common/errors', resource: station %>
 
   <div class="field">
     <%= form.label :title %>
@@ -7,7 +7,7 @@
   </div>
 
   <div class="actions">
-    <% if @railway_station.new_record? %>
+    <% if station.new_record? %>
       <%= form.submit t('common.submit') %>
     <% else %>
       <%= form.submit t('common.update') %>

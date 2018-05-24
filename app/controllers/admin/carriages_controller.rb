@@ -1,58 +1,55 @@
 # frozen_string_literal: true
 
-# Admin
-class Admin
-  # Carriage controller
-  class CarriagesController < Admin::BaseController
-    before_action :set_train, only: %i[new create]
-    before_action :set_carriage, only: %i[edit update show destroy]
+# Admin::Carriage controller
+class Admin::CarriagesController < Admin::BaseController
+  before_action :set_train, only: %i[new create]
+  before_action :set_carriage, only: %i[edit update show destroy]
 
-    def index
-      @carriages = Carriage.includes(:train)
+  def index
+    @carriages = Carriage.includes(:train)
+  end
+
+  def new
+    @carriage = Carriage.new
+  end
+
+  def create
+    @carriage = @train.carriages.new(carriage_params)
+    if @carriage.save
+      redirect_to admin_carriage_path(@carriage), note: 'Carriage added!'
+    else
+      render 'new'
     end
+  end
 
-    def new
-      @carriage = Carriage.new
+  def edit; end
+
+  def update
+    if @carriage.update(carriage_params)
+      redirect_to admin_carriage_path(@carriage)
+    else
+      render 'edit'
     end
+  end
 
-    def create
-      @carriage = @train.carriages.new(carriage_params)
-      if @carriage.save
-        redirect_to admin_carriage_path(@carriage), note: 'Carriage added!'
-      else
-        render 'new'
-      end
-    end
+  def show; end
 
-    def edit; end
+  def destroy
+    @carriage.destroy
+    redirect_to admin_carriages_path
+  end
 
-    def update
-      if @carriage.update(carriage_params)
-        redirect_to admin_carriage_path(@carriage)
-      else
-        render 'edit'
-      end
-    end
+  private
 
-    def show; end
+  def set_train
+    @train = Train.find(params[:train_id])
+  end
 
-    def destroy
-      @carriage.destroy
-      redirect_to admin_carriages_path
-    end
+  def set_carriage
+    @carriage = Carriage.find(params[:id])
+  end
 
-    private
-
-    def set_train
-      @train = Train.find(params[:train_id])
-    end
-
-    def set_carriage
-      @carriage = Carriage.find(params[:id])
-    end
-
-    def carriage_params
-      params.require(:carriage).permit(:top_seats, :bottom_seats, :train_id)
-    end
+  def carriage_params
+    params.require(:carriage).permit(:top_seats, :bottom_seats, :train_id)
   end
 end
