@@ -9,6 +9,7 @@ class SearchesController < ApplicationController
       start_station = RailwayStation.find(params[:arrival_station])
       end_station = RailwayStation.find(params[:departure_station])
       @routes = Route.includes(:trains).all_routes_by_query(start_station, end_station)
+      flash[:notice] = 'Ничего не найдено' if @routes.nil?
 
       session[:start_station] = start_station
       session[:end_station] = end_station
