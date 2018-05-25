@@ -7,7 +7,6 @@
   <td><%= carriage.number %></td>
   <td>
     <%= link_to t('common.show'), admin_carriage_path(carriage.id) %>
-    <%= link_to t('common.edit'), edit_admin_carriage_path(carriage) %>
     <%= link_to t('common.delete'), admin_carriage_path(carriage.id), method: :delete, data: { confirm: t('common.delete_question') } %>
   </td>
 </tr>

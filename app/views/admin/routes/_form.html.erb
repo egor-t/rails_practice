@@ -1,5 +1,6 @@
-<%= form_for([:admin, @route]) do |form| %>
-  <%= render 'common/errors', resource: @route %>
+<% hidden = false unless local_assigns[:hidden] %>
+<%= form_for([:admin, route], html: { style: "display: #{hidden ? 'none' : 'block'}" }) do |form| %>
+  <%= render 'common/errors', resource: route %>
 
   <div class="field">
     <%= form.label :name %>

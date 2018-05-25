@@ -1,31 +1,35 @@
 <%= form_for([:admin, @train, @carriage.becomes(Carriage)]) do |form| %>
-   <% if @carriage.errors.any? %>
-     <div id="error_explanation">
-       <h2><%= pluralize(carriage.errors.count, "error") %> prohibited this carriage from being saved:</h2>
+  <%= render 'common/errors', resource: @carriage %>
  
-       <ul>
-       <% @carriage.errors.full_messages.each do |message| %>
-         <li><%= message %></li>
-       <% end %>
-       </ul>
-     </div>
-   <% end %>
- 
-   <div class="field">
-     <%= form.label :top_seats %>
-     <%= form.number_field :top_seats %>
-   </div>
- 
-   <div class="field">
-     <%= form.label :bottom_seats %>
-     <%= form.number_field :bottom_seats %>
-   </div>
+  <div class="field">
+    <%= form.label :type %><br>
+    <%= form.select :type, Carriage::TYPES, selected: @carriage.type || 'EconomCarriage' %>
+  </div>
 
-    <div class="field">
-      <%= form.label :train, t('admin.trains.index.title') %>
-      <%= form.collection_select :train_id, Train.all, :id, :number  %>
-   </div>
- 
+  <div class="field carriage_seats top_seats">
+    <%= form.label :top_seats %>
+    <%= form.number_field :top_seats %>
+  </div>
+
+  <div class="field carriage_seats bottom_seats">
+    <%= form.label :bottom_seats %>
+    <%= form.number_field :bottom_seats %>
+  </div>
+
+  <div class="field carriage_seats side_top_seats">
+    <%= form.label :side_top_seats %><br>
+    <%= form.number_field :side_top_seats %>
+  </div>
+
+  <div class="field carriage_seats side_bottom_seats">
+    <%= form.label :side_bottom_seats %><br>
+    <%= form.number_field :side_bottom_seats %>
+  </div>
+
+  <div class="field carriage_seats seating_place">
+    <%= form.label :seating_place %><br>
+    <%= form.number_field :seating_place %>
+  </div>
 
   <div class="actions">
     <% if @carriage.new_record? %>

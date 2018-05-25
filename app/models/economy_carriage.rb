@@ -2,5 +2,5 @@
 
 # Economy carriage model
 class EconomyCarriage < Carriage
-  validates :top_places, :bottom_places, :side_bottom_places, :side_top_places, presence: true
+  validates :top_seats, :bottom_seats, :side_bottom_seats, :side_top_seats, presence: true
 end

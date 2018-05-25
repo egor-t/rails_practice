@@ -7,7 +7,7 @@
   <% when "SeatCarriage" %>
   <p>
     <strong>Seating places in carriage:</strong>
-    <%= @carriage.seating_places %><br/>
+    <%= @carriage.seating_place %><br/>
   </p>
 
   <% when "CoupeCarriage" %>
@@ -37,5 +37,4 @@
   </p>
 <% end %>
 
-<%= link_to t('common.edit'), edit_admin_carriage_path(@carriage) %> |
-<%= link_to t('common.back'), admin_carriages_path %>
+<%= link_to t('common.back'), admin_trains_path %>
